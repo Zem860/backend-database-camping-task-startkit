@@ -1,4 +1,3 @@
-
 -- ████████  █████   █     █ 
 --   █ █   ██    █  █     ██ 
 --   █ █████ ███ ███       █ 
@@ -32,9 +31,9 @@
 -- or email = 'starplatinum@hexschooltest.io';
 
 -- 1-3 刪除：刪除USER 資料表中，用 Email 找到透明人，並刪除該筆資料
---delete from "USER" 
---where name = '透明人';
---select * from USER;
+-- delete from "USER" 
+-- where name = '透明人';
+-- select * from USER;
 
 -- 1-4 查詢：取得USER 資料表目前所有用戶數量（提示：使用count函式）
 -- select count(*)as "user數量" from "USER";
@@ -65,17 +64,26 @@
     -- 3. `好野人` 購買 `14 堂組合包方案`
 
     
+insert into "CREDIT_PURCHASE"
+(purchased_credits,price_paid, user_id, credit_package_id)
+values('14',2520, 
+(select id from "USER" where name ='王小明'),
+(select id from "CREDIT_PACKAGE" where credit_amount = 14));
+
 -- insert into "CREDIT_PURCHASE"
 -- (purchased_credits,price_paid, user_id, credit_package_id)
--- values('14',2520, 
--- (select id from "USER" where name ='王小明'),
--- (select id from "CREDIT_PACKAGE" where credit_amount = 14)),
+-- values
 -- ('21',4800, 
 -- (select id from "USER" where name ='王小明'),
--- (select id from "CREDIT_PACKAGE" where credit_amount = 21)),
+-- (select id from "CREDIT_PACKAGE" where credit_amount = 21));
+
+-- insert into "CREDIT_PURCHASE"
+-- (purchased_credits,price_paid, user_id, credit_package_id)
+-- values
 -- ('14',2520, 
 -- (select id from "USER" where name ='好野人'),
 -- (select id from "CREDIT_PACKAGE" where credit_amount = 14));
+
 -- SELECT "USER".name, "CREDIT_PACKAGE".name
 -- FROM "CREDIT_PURCHASE"
 -- INNER JOIN "USER"

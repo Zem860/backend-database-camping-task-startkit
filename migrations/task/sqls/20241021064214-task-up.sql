@@ -103,9 +103,9 @@
     -- 1. 將用戶`李燕容`新增為教練，並且年資設定為2年（提示：使用`李燕容`的email ，取得 `李燕容` 的 `id` ）
     -- select email from "USER" where name = '李燕容';
     --獲取email
-insert into "COACH" (user_id, experience_years)
-values
-((select id from "USER" where email =(select email from "USER" where name = '李燕容') ), 2)
+-- insert into "COACH" (user_id, experience_years)
+-- values
+-- ((select id from "USER" where email =(select email from "USER" where name = '李燕容') ), 2)
 
 --使用了雙重子查詢去新增id
 -- select "USER".name, *  from "COACH" inner join "USER" on "COACH".user_id 
@@ -336,15 +336,15 @@ values
     -- inner join ( 用戶王小明的已使用堂數) as "COURSE_BOOKING"
     -- on "COURSE_BOOKING".user_id = "CREDIT_PURCHASE".user_id;
 
--- select "USER".name, 
--- (SUM("CREDIT_PURCHASE".purchased_credits)-(select COUNT(*)
--- from "COURSE_BOOKING" 
--- where "COURSE_BOOKING".user_id = "USER".id and "COURSE_BOOKING".status!='課程已取消' and "USER".name = '王小明' ) )
--- as remaining_credit
--- from "USER"
--- inner join "CREDIT_PURCHASE" on "USER".id = "CREDIT_PURCHASE".user_id 
--- where "USER".name = '王小明'
--- group by "USER".id
+select "USER".name, 
+(SUM("CREDIT_PURCHASE".purchased_credits)-(select COUNT(*)
+from "COURSE_BOOKING" 
+where "COURSE_BOOKING".user_id = "USER".id and "COURSE_BOOKING".status!='課程已取消' and "USER".name = '王小明' ) )
+as remaining_credit
+from "USER"
+inner join "CREDIT_PURCHASE" on "USER".id = "CREDIT_PURCHASE".user_id 
+where "USER".name = '王小明'
+group by "USER".id
 
 
 -- ████████  █████   █     ███  

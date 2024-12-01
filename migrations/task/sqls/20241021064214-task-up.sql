@@ -64,11 +64,11 @@
     -- 3. `好野人` 購買 `14 堂組合包方案`
 
     
-insert into "CREDIT_PURCHASE"
-(purchased_credits,price_paid, user_id, credit_package_id)
-values('14',2520, 
-(select id from "USER" where name ='王小明'),
-(select id from "CREDIT_PACKAGE" where credit_amount = 14));
+-- insert into "CREDIT_PURCHASE"
+-- (purchased_credits,price_paid, user_id, credit_package_id)
+-- values('14',2520, 
+-- (select id from "USER" where name ='王小明'),
+-- (select id from "CREDIT_PACKAGE" where credit_amount = 14));
 
 -- insert into "CREDIT_PURCHASE"
 -- (purchased_credits,price_paid, user_id, credit_package_id)
@@ -90,7 +90,6 @@ values('14',2520,
 -- ON "CREDIT_PURCHASE".user_id = "USER".id
 -- inner JOIN "CREDIT_PACKAGE"
 -- ON "CREDIT_PURCHASE".credit_package_id  = "CREDIT_PACKAGE".id;
---查看是否正確(記得練習結束再回來把name的選項改掉)
 
 
 -- ████████  █████   █    ████   
@@ -104,9 +103,9 @@ values('14',2520,
     -- 1. 將用戶`李燕容`新增為教練，並且年資設定為2年（提示：使用`李燕容`的email ，取得 `李燕容` 的 `id` ）
     -- select email from "USER" where name = '李燕容';
     --獲取email
---     insert into "COACH" (user_id, experience_years)
--- values
--- ((select id from "USER" where email =(select email from "USER" where name = '李燕容') ), 2)
+insert into "COACH" (user_id, experience_years)
+values
+((select id from "USER" where email =(select email from "USER" where name = '李燕容') ), 2)
 
 --使用了雙重子查詢去新增id
 -- select "USER".name, *  from "COACH" inner join "USER" on "COACH".user_id 

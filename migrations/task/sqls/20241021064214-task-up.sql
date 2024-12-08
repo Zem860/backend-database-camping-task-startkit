@@ -101,25 +101,25 @@ ON "CREDIT_PURCHASE".credit_package_id  = "CREDIT_PACKAGE".id;
 -- 3. 教練資料 ，資料表為 COACH ,SKILL,COACH_LINK_SKILL
 -- 3-1 新增：在`COACH`資料表新增三筆教練資料，資料需求如下：
     -- 1. 將用戶`李燕容`新增為教練，並且年資設定為2年（提示：使用`李燕容`的email ，取得 `李燕容` 的 `id` ）
-    -- select email from "USER" where name = '李燕容';
+    select email from "USER" where name = '李燕容';
     --獲取email
--- insert into "COACH" (user_id, experience_years)
--- values
--- ((select id from "USER" where email =(select email from "USER" where name = '李燕容') ), 2)
+insert into "COACH" (user_id, experience_years)
+values
+((select id from "USER" where email =(select email from "USER" where name = '李燕容') ), 2);
 
 --使用了雙重子查詢去新增id
--- select "USER".name, *  from "COACH" inner join "USER" on "COACH".user_id 
--- = "USER".id
+select "USER".name, *  from "COACH" inner join "USER" on "COACH".user_id 
+= "USER".id;
 --確認是否新增
 
 -- 2. 將用戶`肌肉棒子`新增為教練，並且年資設定為2年
 -- 3. 將用戶`Q太郎`新增為教練，並且年資設定為2年
--- insert into "COACH" (user_id, experience_years)
--- select id, 2
--- from "USER"
--- WHERE name = '肌肉棒子' or name = 'Q太郎';
+insert into "COACH" (user_id, experience_years)
+select id, 2
+from "USER"
+WHERE name = '肌肉棒子' or name = 'Q太郎';
 
---select *, "USER".name from "COACH" inner join "USER" on "COACH".user_id = "USER".id
+select *, "USER".name from "COACH" inner join "USER" on "COACH".user_id = "USER".id;
 --查看是否有新增
 
 
@@ -128,36 +128,35 @@ ON "CREDIT_PURCHASE".credit_package_id  = "CREDIT_PACKAGE".id;
     -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
     -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
 --3-2-1
--- insert into "COACH_LINK_SKILL" (coach_id, skill_id) 
--- select "COACH".id, "SKILL".id from
--- "COACH","SKILL" where "SKILL".name = '重訓';
+insert into "COACH_LINK_SKILL" (coach_id, skill_id) 
+select "COACH".id, "SKILL".id from
+"COACH","SKILL" where "SKILL".name = '重訓';
 --新增資料
--- SELECT 
---     "USER".name AS coach_name, 
---     "SKILL".name AS skill_name
--- FROM 
---     "COACH_LINK_SKILL"
--- INNER JOIN "COACH" ON "COACH_LINK_SKILL".coach_id = "COACH".id
--- INNER JOIN "USER" ON "COACH".user_id = "USER".id
--- INNER JOIN "SKILL" ON "COACH_LINK_SKILL".skill_id = "SKILL".id
--- ORDER BY coach_name, skill_name;
+SELECT 
+    "USER".name AS coach_name, 
+    "SKILL".name AS skill_name
+FROM 
+    "COACH_LINK_SKILL"
+INNER JOIN "COACH" ON "COACH_LINK_SKILL".coach_id = "COACH".id
+INNER JOIN "USER" ON "COACH".user_id = "USER".id
+INNER JOIN "SKILL" ON "COACH_LINK_SKILL".skill_id = "SKILL".id
+ORDER BY coach_name, skill_name;
 ---查看
 -- 3-2-2
---  insert into "COACH_LINK_SKILL" (coach_id, skill_id) 
---  select "COACH".id, "SKILL".id from
---  "COACH"
---  inner join "USER" on "COACH".user_id ="USER".id
---   inner join "SKILL" on "SKILL".name = '瑜伽'
-
---  where "USER".name = '肌肉棒子';
+ insert into "COACH_LINK_SKILL" (coach_id, skill_id) 
+ select "COACH".id, "SKILL".id from
+ "COACH"
+ inner join "USER" on "COACH".user_id ="USER".id
+  inner join "SKILL" on "SKILL".name = '瑜伽'
+ where "USER".name = '肌肉棒子';
 -- 3-2-3
--- insert into "COACH_LINK_SKILL" 
--- (coach_id, skill_id)
--- select "COACH".id, "SKILL".id 
--- from "COACH"
--- inner join "SKILL" on "SKILL".name in ('有氧運動', '復健訓練')
--- inner join "USER" on "COACH".user_id = "USER".id
--- where "USER".name = 'Q太郎';
+insert into "COACH_LINK_SKILL" 
+(coach_id, skill_id)
+select "COACH".id, "SKILL".id 
+from "COACH"
+inner join "SKILL" on "SKILL".name in ('有氧運動', '復健訓練')
+inner join "USER" on "COACH".user_id = "USER".id
+where "USER".name = 'Q太郎';
 
 
 

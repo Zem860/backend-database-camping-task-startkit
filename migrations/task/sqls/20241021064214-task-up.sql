@@ -19,7 +19,7 @@ insert into "USER" (name, email, role) values
 ('肌肉棒子', 'muscle@hexschooltest.io', 'USER'),
 ('好野人', 'richman@hexschooltest.io', 'USER'),
 ('Q太郎', ' starplatinum@hexschooltest.io', 'USER' ),
-('透明人', ' opacity0@hexschooltest.io','USER')
+('透明人', ' opacity0@hexschooltest.io','USER');
 
 -- 1-2 修改：用 Email 找到 李燕容、肌肉棒子、Q太郎，如果他的 Role 為 USER 將他的 Role 改為 COACH
 
@@ -53,10 +53,10 @@ select * from "USER" limit 3;
     -- 1. 名稱為 `7 堂組合包方案`，價格為`1,400` 元，堂數為`7`
     -- 2. 名稱為`14 堂組合包方案`，價格為`2,520` 元，堂數為`14`
     -- 3. 名稱為 `21 堂組合包方案`，價格為`4,800` 元，堂數為`21`
---     insert into "CREDIT_PACKAGE" (name,credit_amount, price) values
--- ('7 堂組合包方案',7, 1400 ),
--- ('14 堂組合包方案',14,2520  ),
--- ('21 堂組合包方案', 21, 4800);
+insert into "CREDIT_PACKAGE" (name,credit_amount, price) values
+('7 堂組合包方案',7, 1400 ),
+('14 堂組合包方案',14,2520  ),
+('21 堂組合包方案', 21, 4800);
 -- select * from "CREDIT_PACKAGE";
 -- 2-2. 新增：在 `CREDIT_PURCHASE` 資料表，新增三筆資料：（請使用 name 欄位做子查詢）
     -- 1. `王小明` 購買 `14 堂組合包方案`

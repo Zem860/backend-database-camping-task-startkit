@@ -158,43 +158,40 @@ inner join "SKILL" on "SKILL".name in ('有氧運動', '復健訓練')
 inner join "USER" on "COACH".user_id = "USER".id
 where "USER".name = 'Q太郎';
 
-
-
-
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年
     -- 2. 教練`Q太郎` 的經驗年數為5年
--- update "COACH"
--- set experience_years  = 3
--- from "USER"
--- where "USER".id = "COACH".user_id and "USER".email = 'muscle@hexschooltest.io'
+update "COACH"
+set experience_years  = 3
+from "USER"
+where "USER".id = "COACH".user_id and "USER".email = 'muscle@hexschooltest.io';
 
--- SELECT * FROM "USER"
+SELECT * FROM "USER";
 -- 查看email
--- UPDATE "COACH"
--- SET experience_years = 3
--- FROM "USER"
--- WHERE "COACH".user_id = "USER".id
---   AND "USER".email = 'muscle@hexschooltest.io';
+UPDATE "COACH"
+SET experience_years = 3
+FROM "USER"
+WHERE "COACH".user_id = "USER".id
+  AND "USER".email = 'muscle@hexschooltest.io';
 
--- UPDATE "COACH"
--- SET experience_years = 5
--- FROM "USER"
--- WHERE "COACH".user_id = "USER".id
--- AND "USER".email = 'starplatinum@hexschooltest.io'
+UPDATE "COACH"
+SET experience_years = 5
+FROM "USER"
+WHERE "COACH".user_id = "USER".id
+AND "USER".email = 'starplatinum@hexschooltest.io';
 
 -- UPDATE無法使用INNER.JOIN(使用FROM)
 
--- select "USER".name, "COACH".experience_years from "COACH"
--- inner join "USER" on "COACH".user_id = "USER".id
+select "USER".name, "COACH".experience_years from "COACH"
+inner join "USER" on "COACH".user_id = "USER".id;
 --查閱
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
---select * from "SKILL";
---insert into "SKILL" (name) values ('空中瑜伽');
---select * from "SKILL"
---delete from "SKILL" where name = '空中瑜伽';
--- select * from "SKILL"
+select * from "SKILL";
+insert into "SKILL" (name) values ('空中瑜伽');
+select * from "SKILL";
+delete from "SKILL" where name = '空中瑜伽';
+select * from "SKILL";
 
 
 --  ████████  █████   █    █   █ 

@@ -64,32 +64,32 @@ insert into "CREDIT_PACKAGE" (name,credit_amount, price) values
     -- 3. `好野人` 購買 `14 堂組合包方案`
 
     
--- insert into "CREDIT_PURCHASE"
--- (purchased_credits,price_paid, user_id, credit_package_id)
--- values('14',2520, 
--- (select id from "USER" where name ='王小明'),
--- (select id from "CREDIT_PACKAGE" where credit_amount = 14));
+insert into "CREDIT_PURCHASE"
+(purchased_credits,price_paid, user_id, credit_package_id)
+values('14',2520, 
+(select id from "USER" where name ='王小明'),
+(select id from "CREDIT_PACKAGE" where credit_amount = 14));
 
--- insert into "CREDIT_PURCHASE"
--- (purchased_credits,price_paid, user_id, credit_package_id)
--- values
--- ('21',4800, 
--- (select id from "USER" where name ='王小明'),
--- (select id from "CREDIT_PACKAGE" where credit_amount = 21));
+insert into "CREDIT_PURCHASE"
+(purchased_credits,price_paid, user_id, credit_package_id)
+values
+('21',4800, 
+(select id from "USER" where name ='王小明'),
+(select id from "CREDIT_PACKAGE" where credit_amount = 21));
 
--- insert into "CREDIT_PURCHASE"
--- (purchased_credits,price_paid, user_id, credit_package_id)
--- values
--- ('14',2520, 
--- (select id from "USER" where name ='好野人'),
--- (select id from "CREDIT_PACKAGE" where credit_amount = 14));
+insert into "CREDIT_PURCHASE"
+(purchased_credits,price_paid, user_id, credit_package_id)
+values
+('14',2520, 
+(select id from "USER" where name ='好野人'),
+(select id from "CREDIT_PACKAGE" where credit_amount = 14));
 
--- SELECT "USER".name, "CREDIT_PACKAGE".name
--- FROM "CREDIT_PURCHASE"
--- INNER JOIN "USER"
--- ON "CREDIT_PURCHASE".user_id = "USER".id
--- inner JOIN "CREDIT_PACKAGE"
--- ON "CREDIT_PURCHASE".credit_package_id  = "CREDIT_PACKAGE".id;
+SELECT "USER".name, "CREDIT_PACKAGE".name
+FROM "CREDIT_PURCHASE"
+INNER JOIN "USER"
+ON "CREDIT_PURCHASE".user_id = "USER".id
+inner JOIN "CREDIT_PACKAGE"
+ON "CREDIT_PURCHASE".credit_package_id  = "CREDIT_PACKAGE".id;
 
 
 -- ████████  █████   █    ████   

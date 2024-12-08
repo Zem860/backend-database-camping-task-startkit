@@ -210,11 +210,11 @@ select * from "SKILL";
     -- 5. 授課結束時間`end_at`設定為2024-11-25 16:00:00
     -- 6. 最大授課人數`max_participants` 設定為10
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
--- insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participants, meeting_url)
--- select "USER".id, "SKILL".id ,'重訓基礎課', '2024-11-25 14:00:00', '2024-11-25 16:00:00', 10,'https://test-meeting.test.io' 
--- from "USER"
--- inner join "SKILL" on "SKILL".name = '重訓'
--- where "USER".name = '李燕容'
+insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participants, meeting_url)
+select "USER".id, "SKILL".id ,'重訓基礎課', '2024-11-25 14:00:00', '2024-11-25 16:00:00', 10,'https://test-meeting.test.io' 
+from "USER"
+inner join "SKILL" on "SKILL".name = '重訓'
+where "USER".name = '李燕容';
 
 
 -- ████████  █████   █    █████ 
